@@ -1,0 +1,9 @@
+
+
+---
+
+const {href, target} = Astro.props;
+---
+<a class="text-cyan-500 visited:text-cyan-700 hover:text-cyan-400 focus:text-cyan-600 active:text-cyan-800" href={href} target={target}>
+  <slot />
+</a>

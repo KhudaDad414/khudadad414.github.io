@@ -3,6 +3,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import Link from '../components/ui/Link.astro';
 ---
 
 <!doctype html>
@@ -11,39 +12,35 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
-		<Header />
+		<!-- <Header /> -->
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
+			
+			<h2 class="text-gray-900 text-4xl font-bold">👋 Hello Stranger!</h2>
 			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
+				I'm KhudaDad. Husband, software engineer,open-source maintainer, infrequent writer. I love reading, lie-ins, cloudy weather, and being indoors. I buy more books than I read, I'm scared of caves, and I LOVE coffee.
 			</p>
 			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
+				It's really nice to meet you.
 			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<section class="mt-10">
+		  	<h2 class="text-gray-900 text-4xl font-bold">👨🏻‍💻 I Maintain</h2>
+				<p>
+					You can find me on <Link href="https://github.com/khudadad414" target="_blank">GitHub</Link>. Here are some open-source projects that I maintain and proud of:
+				</p>
+				<ul class="list-disc pl-5">
+					<li><Link href="https://github.com/asyncapi/studio" target="_blank">Studio</Link>: An AsyncAPI spec editor and visualizer.</li>
+					<li><Link href="https://github.com/asyncapi/optimizer" target="_blank">Optimizer</Link>: Optimize your AsyncAPI spec.</li>
+					<li><Link href="https://github.com/asyncapi/glee" target="_blank">Glee</Link>: A Node.js framework for AsyncAPI API-First enthusiasts.</li>
+				</ul>
+		  </section>
+			<section class="mt-10">
+		  	<h2 class="text-gray-900 text-4xl font-bold">🌐 I Internet</h2>
+				<ul class="list-disc pl-5">
+					<li><Link href="mailto:khudadad414@gmail.com">khudadad414@gmail.com</Link></li>
+					<li><Link href="https://www.linkedin.com/in/khudadadnomani/" target="_blank">LinkedIn</Link></li>
+					<li><Link href="https://github.com/khudadad414" target="_blank">GitHub</Link></li>
+				</ul>
+		  </section>
 		</main>
 		<Footer />
 	</body>
