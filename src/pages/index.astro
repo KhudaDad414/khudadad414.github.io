@@ -4,6 +4,13 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import Link from '../components/ui/Link.astro';
+import { getCollection } from 'astro:content';
+
+
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+).slice(0,3);
 ---
 
 <!doctype html>
@@ -12,12 +19,12 @@ import Link from '../components/ui/Link.astro';
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
-		<!-- <Header /> -->
+		<Header />
 		<main>
 			
 			<h2 class="text-gray-900 text-4xl font-bold">👋 Hello Stranger!</h2>
 			<p>
-				I'm KhudaDad. Husband, software engineer,open-source maintainer, infrequent writer. I love reading, lie-ins, cloudy weather, and being indoors. I buy more books than I read, I'm scared of caves, and I LOVE coffee.
+				I'm KhudaDad. Husband, software engineer, open-source maintainer, infrequent writer. I love reading, lie-ins, cloudy weather, and being indoors. I buy more books than I read, I'm scared of caves, and I LOVE coffee.
 			</p>
 			<p>
 				It's really nice to meet you.
@@ -39,6 +46,17 @@ import Link from '../components/ui/Link.astro';
 					<li><Link href="mailto:khudadad414@gmail.com">khudadad414@gmail.com</Link></li>
 					<li><Link href="https://www.linkedin.com/in/khudadadnomani/" target="_blank">LinkedIn</Link></li>
 					<li><Link href="https://github.com/khudadad414" target="_blank">GitHub</Link></li>
+				</ul>
+		  </section>
+			<section class="mt-10">
+		  	<h2 class="text-gray-900 text-4xl font-bold">⌨️ I Write</h2>
+				<p>
+					You can find some of my latest blog posts here:
+				</p>
+				<ul class="list-disc pl-5"></ul>
+					{posts.map(post => (
+					<li transition:name="blog-title"><Link href={`/blog/${post.slug}`}>{post.data.title}</Link></li>
+					))}
 				</ul>
 		  </section>
 		</main>
